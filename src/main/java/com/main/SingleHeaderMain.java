@@ -1,6 +1,6 @@
 package com.main;
 
-import com.builder.ExcelTool;
+import com.builder.HSSExcelTool;
 import com.entity.Column;
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class SingleHeaderMain {
             m.put("u_type", "用户类型" + i);
             rowList.add(m);
         }
-        ExcelTool excelTool = new ExcelTool("单级表头的表格", 15, 20);
+        HSSExcelTool excelTool = new HSSExcelTool("单级表头的表格", 15, 20);
         List<Column> titleData = excelTool.columnTransformer(titleList);
         excelTool.exportExcel(titleData, rowList, "D://outExcel-single.xls", true);
     }

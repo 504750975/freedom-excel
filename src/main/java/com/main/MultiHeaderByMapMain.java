@@ -1,6 +1,6 @@
 package com.main;
 
-import com.builder.ExcelTool;
+import com.builder.HSSExcelTool;
 import com.entity.Column;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class MultiHeaderByMapMain {
              m.put("u_type", "用户类型" + i);
              rowList.add(m);
          }
-         ExcelTool excelTool = new ExcelTool("List<Map>数据 多级表头表格", 20, 20);
+         HSSExcelTool excelTool = new HSSExcelTool("List<Map>数据 多级表头表格", 20, 20);
          List<Column> titleData = excelTool.columnTransformer(titleList, "id", "pid", "content", "fieldName", "0");
          excelTool.exportExcel(titleData, rowList, "D://outExcel-multiMap.xls", true);
     }

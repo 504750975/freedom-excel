@@ -27,7 +27,7 @@ import java.util.*;
  * @param <T>
  */
 @Data
-public class ExcelTool<T> {
+public class HSSExcelTool<T> {
 
     /**
      * excel 对象
@@ -61,7 +61,7 @@ public class ExcelTool<T> {
     /**
      * 无参数 初始化 对象
      */
-    public ExcelTool() {
+    public HSSExcelTool() {
         this.title = "sheet1";
         this.workbook = new HSSFWorkbook();
         init(0);
@@ -75,7 +75,7 @@ public class ExcelTool<T> {
      * @param rowHeight
      * @param dateFormat
      */
-    public ExcelTool(String title, int colWidth, int rowHeight, String dateFormat) {
+    public HSSExcelTool(String title, int colWidth, int rowHeight, String dateFormat) {
         this.colWidth = colWidth;
         this.rowHeight = rowHeight;
         this.title = title;
@@ -84,7 +84,7 @@ public class ExcelTool<T> {
         init(0);
     }
 
-    public ExcelTool(String title, int colWidth, int rowHeight) {
+    public HSSExcelTool(String title, int colWidth, int rowHeight) {
         this.colWidth = colWidth;
         this.rowHeight = rowHeight;
         this.title = title;
@@ -92,7 +92,7 @@ public class ExcelTool<T> {
         init(0);
     }
 
-    public ExcelTool(String title, int colWidth, int rowHeight, int flag) {
+    public HSSExcelTool(String title, int colWidth, int rowHeight, int flag) {
         this.colWidth = colWidth;
         this.rowHeight = rowHeight;
         this.title = title;
@@ -100,7 +100,7 @@ public class ExcelTool<T> {
         init(flag);
     }
 
-    public ExcelTool(String title) {
+    public HSSExcelTool(String title) {
         this.title = title;
         this.workbook = new HSSFWorkbook();
         init(0);

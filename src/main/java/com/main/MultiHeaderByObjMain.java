@@ -1,12 +1,9 @@
 package com.main;
 
-import com.builder.ExcelTool;
+import com.builder.HSSExcelTool;
 import com.entity.Column;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  *  根据对象<Entity>的多级表头数据生成excel
@@ -31,6 +28,7 @@ public class MultiHeaderByObjMain {
         TitleEntity titleEntity9 = new TitleEntity("44_1", "44", "角色44", "u_role");
         TitleEntity titleEntity10 = new TitleEntity("44_2", "44", "部门44", "u_dep");
         TitleEntity titleEntity12 = new TitleEntity("44_3", "44_2", "44_2", "u_dep");
+        TitleEntity titleEntity13 = new TitleEntity("44_4", "0", "44_222", "u_type");
         titleList.add(titleEntity0);
         titleList.add(titleEntity);
         titleList.add(titleEntity1);
@@ -45,19 +43,20 @@ public class MultiHeaderByObjMain {
         titleList.add(titleEntity10);
         titleList.add(titleEntity11);
         titleList.add(titleEntity12);
+        titleList.add(titleEntity13);
         //单级的 行内数据
-        List<Map<String, String>> rowList = new ArrayList<>();
+        List<Map<String, Object>> rowList = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
-            Map<String, String> m = new HashMap<String, String>();
+            Map<String, Object> m = new HashMap<String, Object>();
             m.put("u_login_id", "登录名" + i);
             m.put("u_name", "张三" + i);
             m.put("u_role", "角色" + i);
             m.put("u_dep", "部门" + i);
-            m.put("u_type", "用户类型" + i);
+            m.put("u_type", new Date());
             rowList.add(m);
         }
-        ExcelTool excelTool = new ExcelTool("实体类（entity）数据 多级表头表格", 20, 20);
+        HSSExcelTool excelTool = new HSSExcelTool("实体类（entity）数据 多级表头表格", 20, 20);
         List<Column> titleData = excelTool.columnTransformer(titleList, "id", "pid", "content", "fieldName", "0");
-        excelTool.exportExcel(titleData, rowList, "D://outExcel-multiObj.xls", true, true);
+        excelTool.exportExcel(titleData, rowList, "D://outExcel-multiObj.xlsx", true, true);
     }
 }
